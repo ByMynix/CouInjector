@@ -29,6 +29,8 @@ Partial Class Form1
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
         Me.MetroTabPage2 = New MetroFramework.Controls.MetroTabPage()
+        Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
+        Me.MetroToggle2 = New MetroFramework.Controls.MetroToggle()
         Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -110,6 +112,8 @@ Partial Class Form1
         '
         'MetroTabPage2
         '
+        Me.MetroTabPage2.Controls.Add(Me.MetroLabel2)
+        Me.MetroTabPage2.Controls.Add(Me.MetroToggle2)
         Me.MetroTabPage2.Controls.Add(Me.MetroButton4)
         Me.MetroTabPage2.Controls.Add(Me.MetroButton3)
         Me.MetroTabPage2.HorizontalScrollbarBarColor = True
@@ -124,14 +128,39 @@ Partial Class Form1
         Me.MetroTabPage2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroTabPage2.VerticalScrollbarSize = 10
         '
+        'MetroLabel2
+        '
+        Me.MetroLabel2.AutoSize = True
+        Me.MetroLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.MetroLabel2.Cursor = System.Windows.Forms.Cursors.Default
+        Me.MetroLabel2.Location = New System.Drawing.Point(158, 1)
+        Me.MetroLabel2.Name = "MetroLabel2"
+        Me.MetroLabel2.Size = New System.Drawing.Size(141, 19)
+        Me.MetroLabel2.TabIndex = 54
+        Me.MetroLabel2.Text = "Webpages after Start :"
+        '
+        'MetroToggle2
+        '
+        Me.MetroToggle2.AutoSize = True
+        Me.MetroToggle2.Checked = True
+        Me.MetroToggle2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MetroToggle2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MetroToggle2.DisplayStatus = False
+        Me.MetroToggle2.Location = New System.Drawing.Point(305, 3)
+        Me.MetroToggle2.Name = "MetroToggle2"
+        Me.MetroToggle2.Size = New System.Drawing.Size(50, 17)
+        Me.MetroToggle2.TabIndex = 53
+        Me.MetroToggle2.Text = "An"
+        Me.MetroToggle2.UseSelectable = True
+        '
         'MetroButton4
         '
         Me.MetroButton4.BackColor = System.Drawing.SystemColors.Control
         Me.MetroButton4.Cursor = System.Windows.Forms.Cursors.Default
         Me.MetroButton4.DisplayFocus = True
-        Me.MetroButton4.Location = New System.Drawing.Point(3, 62)
+        Me.MetroButton4.Location = New System.Drawing.Point(3, 72)
         Me.MetroButton4.Name = "MetroButton4"
-        Me.MetroButton4.Size = New System.Drawing.Size(352, 49)
+        Me.MetroButton4.Size = New System.Drawing.Size(352, 39)
         Me.MetroButton4.Style = MetroFramework.MetroColorStyle.Red
         Me.MetroButton4.TabIndex = 8
         Me.MetroButton4.Text = "Changelogs"
@@ -143,9 +172,9 @@ Partial Class Form1
         Me.MetroButton3.BackColor = System.Drawing.SystemColors.Control
         Me.MetroButton3.Cursor = System.Windows.Forms.Cursors.Default
         Me.MetroButton3.DisplayFocus = True
-        Me.MetroButton3.Location = New System.Drawing.Point(3, 7)
+        Me.MetroButton3.Location = New System.Drawing.Point(3, 26)
         Me.MetroButton3.Name = "MetroButton3"
-        Me.MetroButton3.Size = New System.Drawing.Size(352, 49)
+        Me.MetroButton3.Size = New System.Drawing.Size(352, 40)
         Me.MetroButton3.Style = MetroFramework.MetroColorStyle.Red
         Me.MetroButton3.TabIndex = 7
         Me.MetroButton3.Text = "Repair all Files"
@@ -315,6 +344,7 @@ Partial Class Form1
         Me.MetroTabControl1.ResumeLayout(False)
         Me.MetroTabPage1.ResumeLayout(False)
         Me.MetroTabPage2.ResumeLayout(False)
+        Me.MetroTabPage2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
@@ -344,4 +374,6 @@ Partial Class Form1
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents MetroLabel5 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroToggle2 As MetroFramework.Controls.MetroToggle
 End Class

@@ -47,14 +47,20 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists("C:\MadInjector\Settings.txt") Then
+            MetroToggle2.Checked = False
+        Else
+            Process.Start("http://discord.bymynix.xyz/")
+            Process.Start("https://bit.ly/bymynixdevelopments")
+            Process.Start("https://bit.ly/github-madinjector-bymynix")
+        End If
         Dim client As WebClient = New WebClient()
-        If MetroTextBox1.Text = client.DownloadString("https://madinjector.bymynix.xyz/Update%20Checker%201.6.txt") Then
+        If MetroTextBox1.Text = client.DownloadString("https://madinjector.bymynix.xyz/Update%20Checker%201.7.txt") Then
 
         Else
             Timer1.Interval = 3 * 1000
             Timer1.Start()
         End If
-        Process.Start("https://bit.ly/cheatermad")
         MetroButton1.Enabled = False
     End Sub
 
@@ -111,5 +117,14 @@ Public Class Form1
 
     Private Sub MetroLink2_Click_1(sender As Object, e As EventArgs) Handles MetroLink2.Click
         Process.Start("https://bit.ly/cheatermad")
+    End Sub
+
+    Private Sub MetroToggle2_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle2.Click
+        If MetroToggle2.Checked = False Then
+            System.IO.File.Create("C:\MadInjector\Settings.txt").Close()
+        End If
+        If MetroToggle2.Checked = True And File.Exists("C:\MadInjector\Settings.txt") Then
+            System.IO.File.Delete("C:\MadInjector\Settings.txt")
+        End If
     End Sub
 End Class
