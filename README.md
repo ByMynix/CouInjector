@@ -8,7 +8,7 @@ CouInjector (formerly MadInjector) is an open-source project since 11.09.2021 an
 
 
 # Compile
-In this project "CouInjector" resources were embedded, among others, the resource "Injection", i.e. the injection file (branch in preparation) and the resource "Updater", a console application as auto-updater [Branch-CouInjector-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater), which takes care of automatic updates. These two resources can of course be replaced by compiling the two applications mentioned and then embedding them as resources. 
+In this project "CouInjector" resources were embedded, among others, the resource "Injection", i.e. the injection file (branch in preparation) and the resource "Updater", a console application as auto-updater [Branch-CouInjector-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater), which takes care of automatic updates. These two resources, which are already embedded in "CouInjector" can of course be replaced by compiling the two applications mentioned and then embedding them as resources.
 
 Compile it in Release / x86
 
