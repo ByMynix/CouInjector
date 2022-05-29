@@ -21,4 +21,4 @@ Compile it in Release / x86
 
 
 # Previous versions
-Please note that up to version 1.9 there is a file structure and it is not a single, let alone a Visual Studio project. From version 2.0 onwards, it is only one Visual Studio project.
+Please note that up to version 1.9 there is a file structure and it is not a single, let alone one Visual Studio project, which cannot be compiled in a simple way to use. From version 2.0 onwards, it is without a Setup Compiler and "CouInjector" can be easily compiled.
