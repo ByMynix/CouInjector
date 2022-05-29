@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CouInjector Auto-Update", "CouInjector Auto-Update\CouInjector Auto-Update.vbproj", "{08B3A482-9634-4B42-BB6C-1169D53AA8B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Debug|x86.ActiveCfg = Debug|x86
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Debug|x86.Build.0 = Debug|x86
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Release|Any CPU.ActiveCfg = Release|x86
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Release|Any CPU.Build.0 = Release|x86
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Release|x86.ActiveCfg = Release|x86
+		{08B3A482-9634-4B42-BB6C-1169D53AA8B1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39219BD3-C601-4C7E-977A-3C6FAFBA1DD2}
+	EndGlobalSection
+EndGlobal
