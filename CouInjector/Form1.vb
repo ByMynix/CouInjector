@@ -22,20 +22,26 @@ Public Class Form1
         If p.Count > 0 Then
             MetroButton1.Enabled = False
             MetroButton2.Enabled = False
+
             My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe", My.Resources.Injection, False)
             Process.Start(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
             My.Computer.Audio.Play(My.Resources.InjectSound, AudioPlayMode.WaitToComplete)
+
             Dim InjectionExit As New Threading.Thread(AddressOf WaitingforExitInjection)
             InjectionExit.Start()
             While InjectionExit.IsAlive
                 Application.DoEvents()
             End While
+
             File.Delete(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
+
             Dim CSGOExit As New Threading.Thread(AddressOf WaitingforExitCSGO)
             CSGOExit.Start()
+
             While CSGOExit.IsAlive
                 Application.DoEvents()
             End While
+
             MetroButton1.Enabled = False
             MetroButton2.Enabled = True
         Else
@@ -76,6 +82,14 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(Environment.CurrentDirectory & "\Updater.exe") Then
+            File.Delete(Environment.CurrentDirectory & "\Updater.exe")
+        Else
+        End If
+        If My.Settings.ToggleChecked1 = "False" Then
+            MetroToggle1.Checked = False
+        Else
+        End If
         If My.Settings.ToggleChecked = "False" Then
             MetroToggle2.Checked = False
         Else
@@ -87,20 +101,11 @@ Public Class Form1
         If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%201.9.txt") Then
 
         Else
-            MessageBox.Show("New update available! The update will start automatically.")
-            Dim h As New Form2
-            h.Show()
+            My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\Updater.exe", My.Resources.Injection, False)
+            MessageBox.Show("New update available! The Updater will start automatically.")
+            Process.Start(System.Environment.CurrentDirectory & "\Updater.exe")
             Me.Close()
         End If
-    End Sub
-
-    Private Sub MetroButton3_Click(sender As Object, e As EventArgs) Handles MetroButton3.Click
-        Try
-            Process.Start("C:\CouInjector\Repair.exe")
-            Me.Close()
-        Catch ex As FileNotFoundException
-            MessageBox.Show("File not found! Your antivirus may have removed the essential files. Check that your antivirus is deactivated and reinstall CouInjector")
-        End Try
     End Sub
 
     Private Sub MetroButton4_Click(sender As Object, e As EventArgs) Handles MetroButton4.Click
@@ -137,5 +142,28 @@ Public Class Form1
 
     Private Sub MetroLink2_Click(sender As Object, e As EventArgs) Handles MetroLink2.Click
         Process.Start("https://bymynix.de/couinjector/")
+    End Sub
+
+    Private Sub MetroToggle1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle1.CheckedChanged
+        If MetroToggle1.Checked = False Then
+            My.Settings.ToggleChecked1 = "False"
+            MetroToggle1.Checked = False
+            My.Settings.Save()
+        End If
+        If MetroToggle1.Checked = True Then
+            My.Settings.ToggleChecked1 = "True"
+            MetroToggle1.Checked = True
+            My.Settings.Save()
+            Dim deskDir As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+
+            Using writer As StreamWriter = New StreamWriter(deskDir & "\" & "CouInjector" & ".url")
+                Dim app As String = System.Reflection.Assembly.GetExecutingAssembly().Location
+                writer.WriteLine("[InternetShortcut]")
+                writer.WriteLine("URL=file:///" & app)
+                writer.WriteLine("IconIndex=0")
+                Dim icon As String = app.Replace("\"c, "/"c)
+                writer.WriteLine("IconFile=" & icon)
+            End Using
+        End If
     End Sub
 End Class
