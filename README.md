@@ -12,7 +12,7 @@ In this project "CouInjector" resources were embedded:
 
 The resource "Injection", i.e. the injection file (branch in preparation).
 
-The resource "Updater", a console application as auto-updater [Branch-CouInjector-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater), which takes care of automatic updates.
+The resource "Updater", a console application as auto-updater ([Branch-CouInjector-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
 
 The resource "VAC-ByPass", i.e. the VAC-ByPass file (branch in preparation).
 
