@@ -124,4 +124,10 @@
   <data name="InjectSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\InjectSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Updater" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Updater.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VAC_ByPass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\VAC_ByPass.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 	ProjectSection(SolutionItems) = preProject
 		CouInjector\Injection.exe = CouInjector\Injection.exe
 		CouInjector\InjectSound.wav = CouInjector\InjectSound.wav
+		CouInjector\Updater.exe = CouInjector\Updater.exe
+		CouInjector\VAC_ByPass.exe = CouInjector\VAC_ByPass.exe
 	EndProjectSection
 EndProject
 Global

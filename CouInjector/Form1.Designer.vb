@@ -25,9 +25,12 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.MetroTabPage1 = New MetroFramework.Controls.MetroTabPage()
+        Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
         Me.MetroTabPage2 = New MetroFramework.Controls.MetroTabPage()
+        Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
+        Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroToggle2 = New MetroFramework.Controls.MetroToggle()
         Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
@@ -38,8 +41,8 @@ Partial Class Form1
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
-        Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MetroTabControl1.SuspendLayout()
         Me.MetroTabPage1.SuspendLayout()
         Me.MetroTabPage2.SuspendLayout()
@@ -54,13 +57,16 @@ Partial Class Form1
         Me.MetroTabControl1.Controls.Add(Me.MetroTabPage2)
         Me.MetroTabControl1.Location = New System.Drawing.Point(23, 63)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 1
+        Me.MetroTabControl1.SelectedIndex = 0
         Me.MetroTabControl1.Size = New System.Drawing.Size(366, 156)
         Me.MetroTabControl1.TabIndex = 0
         Me.MetroTabControl1.UseSelectable = True
         '
         'MetroTabPage1
         '
+        Me.MetroTabPage1.Controls.Add(Me.Label2)
+        Me.MetroTabPage1.Controls.Add(Me.Label1)
+        Me.MetroTabPage1.Controls.Add(Me.MetroButton3)
         Me.MetroTabPage1.Controls.Add(Me.MetroButton1)
         Me.MetroTabPage1.Controls.Add(Me.MetroButton2)
         Me.MetroTabPage1.HorizontalScrollbarBarColor = True
@@ -75,16 +81,32 @@ Partial Class Form1
         Me.MetroTabPage1.VerticalScrollbarHighlightOnWheel = False
         Me.MetroTabPage1.VerticalScrollbarSize = 10
         '
+        'MetroButton3
+        '
+        Me.MetroButton3.BackColor = System.Drawing.SystemColors.Control
+        Me.MetroButton3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MetroButton3.DisplayFocus = True
+        Me.MetroButton3.Highlight = True
+        Me.MetroButton3.Location = New System.Drawing.Point(3, 62)
+        Me.MetroButton3.Name = "MetroButton3"
+        Me.MetroButton3.Size = New System.Drawing.Size(176, 24)
+        Me.MetroButton3.Style = MetroFramework.MetroColorStyle.Yellow
+        Me.MetroButton3.TabIndex = 8
+        Me.MetroButton3.Text = "Start VAC-ByPass"
+        Me.MetroButton3.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.MetroButton3.UseSelectable = True
+        '
         'MetroButton1
         '
         Me.MetroButton1.BackColor = System.Drawing.SystemColors.Control
         Me.MetroButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MetroButton1.DisplayFocus = True
         Me.MetroButton1.Enabled = False
-        Me.MetroButton1.Location = New System.Drawing.Point(3, 62)
+        Me.MetroButton1.Highlight = True
+        Me.MetroButton1.Location = New System.Drawing.Point(179, 7)
         Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(352, 49)
-        Me.MetroButton1.Style = MetroFramework.MetroColorStyle.Red
+        Me.MetroButton1.Size = New System.Drawing.Size(176, 49)
+        Me.MetroButton1.Style = MetroFramework.MetroColorStyle.Yellow
         Me.MetroButton1.TabIndex = 7
         Me.MetroButton1.Text = "Inject"
         Me.MetroButton1.Theme = MetroFramework.MetroThemeStyle.Dark
@@ -95,10 +117,11 @@ Partial Class Form1
         Me.MetroButton2.BackColor = System.Drawing.SystemColors.Control
         Me.MetroButton2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MetroButton2.DisplayFocus = True
+        Me.MetroButton2.Highlight = True
         Me.MetroButton2.Location = New System.Drawing.Point(3, 7)
         Me.MetroButton2.Name = "MetroButton2"
-        Me.MetroButton2.Size = New System.Drawing.Size(352, 49)
-        Me.MetroButton2.Style = MetroFramework.MetroColorStyle.Red
+        Me.MetroButton2.Size = New System.Drawing.Size(176, 49)
+        Me.MetroButton2.Style = MetroFramework.MetroColorStyle.Yellow
         Me.MetroButton2.TabIndex = 6
         Me.MetroButton2.Text = "Choose File"
         Me.MetroButton2.Theme = MetroFramework.MetroThemeStyle.Dark
@@ -122,6 +145,31 @@ Partial Class Form1
         Me.MetroTabPage2.VerticalScrollbarBarColor = True
         Me.MetroTabPage2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroTabPage2.VerticalScrollbarSize = 10
+        '
+        'MetroToggle1
+        '
+        Me.MetroToggle1.AutoSize = True
+        Me.MetroToggle1.Checked = True
+        Me.MetroToggle1.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MetroToggle1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MetroToggle1.DisplayStatus = False
+        Me.MetroToggle1.Location = New System.Drawing.Point(305, 26)
+        Me.MetroToggle1.Name = "MetroToggle1"
+        Me.MetroToggle1.Size = New System.Drawing.Size(50, 17)
+        Me.MetroToggle1.TabIndex = 56
+        Me.MetroToggle1.Text = "An"
+        Me.MetroToggle1.UseSelectable = True
+        '
+        'MetroLabel3
+        '
+        Me.MetroLabel3.AutoSize = True
+        Me.MetroLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.MetroLabel3.Cursor = System.Windows.Forms.Cursors.Default
+        Me.MetroLabel3.Location = New System.Drawing.Point(183, 24)
+        Me.MetroLabel3.Name = "MetroLabel3"
+        Me.MetroLabel3.Size = New System.Drawing.Size(116, 19)
+        Me.MetroLabel3.TabIndex = 55
+        Me.MetroLabel3.Text = "Desktop Shortcut :"
         '
         'MetroLabel2
         '
@@ -153,10 +201,11 @@ Partial Class Form1
         Me.MetroButton4.BackColor = System.Drawing.SystemColors.Control
         Me.MetroButton4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MetroButton4.DisplayFocus = True
+        Me.MetroButton4.Highlight = True
         Me.MetroButton4.Location = New System.Drawing.Point(3, 49)
         Me.MetroButton4.Name = "MetroButton4"
         Me.MetroButton4.Size = New System.Drawing.Size(352, 62)
-        Me.MetroButton4.Style = MetroFramework.MetroColorStyle.Red
+        Me.MetroButton4.Style = MetroFramework.MetroColorStyle.Yellow
         Me.MetroButton4.TabIndex = 8
         Me.MetroButton4.Text = "Changelogs"
         Me.MetroButton4.Theme = MetroFramework.MetroThemeStyle.Dark
@@ -231,43 +280,40 @@ Partial Class Form1
         Me.MetroLink2.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MetroLink2.UseSelectable = True
         '
-        'MetroLabel3
+        'Label1
         '
-        Me.MetroLabel3.AutoSize = True
-        Me.MetroLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.MetroLabel3.Cursor = System.Windows.Forms.Cursors.Default
-        Me.MetroLabel3.Location = New System.Drawing.Point(183, 24)
-        Me.MetroLabel3.Name = "MetroLabel3"
-        Me.MetroLabel3.Size = New System.Drawing.Size(116, 19)
-        Me.MetroLabel3.TabIndex = 55
-        Me.MetroLabel3.Text = "Desktop Shortcut :"
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Location = New System.Drawing.Point(179, 64)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(176, 20)
+        Me.Label1.TabIndex = 86
+        Me.Label1.Text = "VAC-ByPass-Status:  Unknown"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MetroToggle1
+        'Label2
         '
-        Me.MetroToggle1.AutoSize = True
-        Me.MetroToggle1.Checked = True
-        Me.MetroToggle1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.MetroToggle1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MetroToggle1.DisplayStatus = False
-        Me.MetroToggle1.Location = New System.Drawing.Point(305, 26)
-        Me.MetroToggle1.Name = "MetroToggle1"
-        Me.MetroToggle1.Size = New System.Drawing.Size(50, 17)
-        Me.MetroToggle1.TabIndex = 56
-        Me.MetroToggle1.Text = "An"
-        Me.MetroToggle1.UseSelectable = True
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(13, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(3, 92)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(352, 20)
+        Me.Label2.TabIndex = 87
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(412, 242)
-        Me.Controls.Add(Me.MetroLink2)
-        Me.Controls.Add(Me.MetroLabel5)
         Me.Controls.Add(Me.PictureBox8)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MetroLabel1)
+        Me.Controls.Add(Me.MetroLabel5)
         Me.Controls.Add(Me.MetroTabControl1)
+        Me.Controls.Add(Me.MetroLink2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
@@ -305,4 +351,7 @@ Partial Class Form1
     Friend WithEvents MetroLink2 As MetroFramework.Controls.MetroLink
     Friend WithEvents MetroToggle1 As MetroFramework.Controls.MetroToggle
     Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroButton3 As MetroFramework.Controls.MetroButton
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

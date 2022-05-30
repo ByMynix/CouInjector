@@ -78,5 +78,25 @@ Namespace My.Resources
                 Return ResourceManager.GetStream("InjectSound", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Updater() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Updater", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property VAC_ByPass() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VAC_ByPass", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
     End Module
 End Namespace

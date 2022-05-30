@@ -4,14 +4,17 @@ Imports System.Threading
 Public Class Form1
     Private WithEvents CSGOExit As Thread
     Private WithEvents InjectionExit As Thread
+    Private WithEvents VACExit As Thread
+    Private WithEvents SteamExit As Thread
     Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
         Try
             OpenFileDialog1.Filter = "Select your cheat|*.dll|All|*.*"
             OpenFileDialog1.ShowDialog()
-            My.Computer.FileSystem.CopyFile(OpenFileDialog1.FileName, "C:\CouInjector\ServiceHub.Microsoft.dll", overwrite:=True)
+            My.Computer.FileSystem.CopyFile(OpenFileDialog1.FileName, System.Environment.CurrentDirectory & "\ServiceHub.Microsoft.dll", overwrite:=True)
             MetroButton1.Enabled = True
+            Label2.Text = "Selected file: " + OpenFileDialog1.FileName
         Catch ex As System.ArgumentNullException
-            MessageBox.Show("No File selected")
+            Label2.Text = "No File selected"
         Catch ex As System.IO.IOException
             MsgBox(ex.Message)
         End Try
@@ -22,28 +25,27 @@ Public Class Form1
         If p.Count > 0 Then
             MetroButton1.Enabled = False
             MetroButton2.Enabled = False
-
+            Label2.Text = "Preparing injection..."
             My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe", My.Resources.Injection, False)
             Process.Start(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
             My.Computer.Audio.Play(My.Resources.InjectSound, AudioPlayMode.WaitToComplete)
-
+            Label2.Text = "Successfully injected!"
             Dim InjectionExit As New Threading.Thread(AddressOf WaitingforExitInjection)
             InjectionExit.Start()
             While InjectionExit.IsAlive
                 Application.DoEvents()
             End While
-
             File.Delete(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
-
             Dim CSGOExit As New Threading.Thread(AddressOf WaitingforExitCSGO)
             CSGOExit.Start()
-
+            Label2.Text = "Have fun to cheat! [Wait for CSGO exit, to clean up files]"
             While CSGOExit.IsAlive
                 Application.DoEvents()
             End While
-
+            File.Delete(System.Environment.CurrentDirectory & "\ServiceHub.Microsoft.dll")
             MetroButton1.Enabled = False
             MetroButton2.Enabled = True
+            Label2.Text = "Cleaned up files!"
         Else
             MessageBox.Show("Process not found! Start CSGO first before you try to inject")
         End If
@@ -73,6 +75,7 @@ Public Class Form1
 --How to Use--
 
 - Turn off any antivirus on your computer
+- Click on [Start VAC-ByPass]
 - Start CSGO
 - Click on [Choose File] and select your cheat (.dll file)
 - Click on [Inject]
@@ -89,6 +92,16 @@ Public Class Form1
         If My.Settings.ToggleChecked1 = "False" Then
             MetroToggle1.Checked = False
         Else
+            Dim deskDir As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+
+            Using writer As StreamWriter = New StreamWriter(deskDir & "\" & "CouInjector" & ".url")
+                Dim app As String = System.Reflection.Assembly.GetExecutingAssembly().Location
+                writer.WriteLine("[InternetShortcut]")
+                writer.WriteLine("URL=file:///" & app)
+                writer.WriteLine("IconIndex=0")
+                Dim icon As String = app.Replace("\"c, "/"c)
+                writer.WriteLine("IconFile=" & icon)
+            End Using
         End If
         If My.Settings.ToggleChecked = "False" Then
             MetroToggle2.Checked = False
@@ -101,7 +114,7 @@ Public Class Form1
         If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%201.9.txt") Then
 
         Else
-            My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\Updater.exe", My.Resources.Injection, False)
+            My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\Updater.exe", My.Resources.Updater, False)
             MessageBox.Show("New update available! The Updater will start automatically.")
             Process.Start(System.Environment.CurrentDirectory & "\Updater.exe")
             Me.Close()
@@ -165,5 +178,45 @@ Public Class Form1
                 writer.WriteLine("IconFile=" & icon)
             End Using
         End If
+    End Sub
+
+    Private Sub MetroButton3_Click(sender As Object, e As EventArgs) Handles MetroButton3.Click
+        My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe", My.Resources.VAC_ByPass, False)
+        Process.Start(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe")
+        Label1.ForeColor = Color.Lime
+        Label1.Text = "VAC-ByPass-Status:  Active"
+        MetroButton3.Enabled = False
+        Dim VACExit As New Threading.Thread(AddressOf WaitingforVACExit)
+        VACExit.Start()
+        While VACExit.IsAlive
+            Application.DoEvents()
+        End While
+        File.Delete(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe")
+        Dim SteamExit As New Threading.Thread(AddressOf WaitingforSteamExit)
+        SteamExit.Start()
+        While SteamExit.IsAlive
+            Application.DoEvents()
+        End While
+        Label1.ForeColor = Color.Red
+        Label1.Text = "VAC-ByPass-Status:  Inactive"
+        MetroButton3.Enabled = True
+    End Sub
+
+    Private Sub WaitingforVACExit()
+        Dim T As New Process
+        With T
+            For Each p1 As Process In Process.GetProcessesByName("ServiceHub2.TaskRun.Microsoft")
+                p1.WaitForExit()
+            Next
+        End With
+    End Sub
+
+    Private Sub WaitingforSteamExit()
+        Dim T As New Process
+        With T
+            For Each p1 As Process In Process.GetProcessesByName("Steam")
+                p1.WaitForExit()
+            Next
+        End With
     End Sub
 End Class
