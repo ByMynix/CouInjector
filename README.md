@@ -16,7 +16,7 @@ The resource "Updater", a console application as auto-updater ([Branch-CouInject
 
 The resource "VAC-ByPass", i.e. the VAC-ByPass file (branch in preparation).
 
-These three resources, which are already embedded in "CouInjector" can of course be replaced by compiling the two applications mentioned and then embedding them as resources.
+These three resources, which are already embedded in "CouInjector" can of course be replaced by compiling the three applications mentioned and then embedding them as resources.
 
 
 Compile it in Release / x86
