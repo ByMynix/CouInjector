@@ -25,6 +25,8 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.MetroTabPage1 = New MetroFramework.Controls.MetroTabPage()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
@@ -41,8 +43,6 @@ Partial Class Form1
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.MetroTabControl1.SuspendLayout()
         Me.MetroTabPage1.SuspendLayout()
         Me.MetroTabPage2.SuspendLayout()
@@ -80,6 +80,28 @@ Partial Class Form1
         Me.MetroTabPage1.VerticalScrollbarBarColor = True
         Me.MetroTabPage1.VerticalScrollbarHighlightOnWheel = False
         Me.MetroTabPage1.VerticalScrollbarSize = 10
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(13, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(3, 92)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(352, 20)
+        Me.Label2.TabIndex = 87
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Location = New System.Drawing.Point(179, 64)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(176, 20)
+        Me.Label1.TabIndex = 86
+        Me.Label1.Text = "VAC-ByPass-Status:  Unknown"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MetroButton3
         '
@@ -279,28 +301,6 @@ Partial Class Form1
         Me.MetroLink2.Text = "bymynix.de/couinjector"
         Me.MetroLink2.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MetroLink2.UseSelectable = True
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label1.Location = New System.Drawing.Point(179, 64)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(176, 20)
-        Me.Label1.TabIndex = 86
-        Me.Label1.Text = "VAC-ByPass-Status:  Unknown"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(13, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(3, 92)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(352, 20)
-        Me.Label2.TabIndex = 87
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '

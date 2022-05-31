@@ -6,11 +6,13 @@ Public Class Form1
     Private WithEvents InjectionExit As Thread
     Private WithEvents VACExit As Thread
     Private WithEvents SteamExit As Thread
+
+    Dim AppPath = System.AppDomain.CurrentDomain.BaseDirectory
     Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
         Try
             OpenFileDialog1.Filter = "Select your cheat|*.dll|All|*.*"
             OpenFileDialog1.ShowDialog()
-            My.Computer.FileSystem.CopyFile(OpenFileDialog1.FileName, System.Environment.CurrentDirectory & "\ServiceHub.Microsoft.dll", overwrite:=True)
+            My.Computer.FileSystem.CopyFile(OpenFileDialog1.FileName, AppPath & "\ServiceHub.Microsoft.dll", overwrite:=True)
             MetroButton1.Enabled = True
             Label2.Text = "Selected file: " + OpenFileDialog1.FileName
         Catch ex As System.ArgumentNullException
@@ -26,8 +28,8 @@ Public Class Form1
             MetroButton1.Enabled = False
             MetroButton2.Enabled = False
             Label2.Text = "Preparing injection..."
-            My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe", My.Resources.Injection, False)
-            Process.Start(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
+            My.Computer.FileSystem.WriteAllBytes(AppPath & "\ServiceHub.TaskRun.Microsoft.exe", My.Resources.Injection, False)
+            Process.Start(AppPath & "\ServiceHub.TaskRun.Microsoft.exe")
             My.Computer.Audio.Play(My.Resources.InjectSound, AudioPlayMode.WaitToComplete)
             Label2.Text = "Successfully injected!"
             Dim InjectionExit As New Threading.Thread(AddressOf WaitingforExitInjection)
@@ -35,14 +37,14 @@ Public Class Form1
             While InjectionExit.IsAlive
                 Application.DoEvents()
             End While
-            File.Delete(System.Environment.CurrentDirectory & "\ServiceHub.TaskRun.Microsoft.exe")
+            IO.File.Delete(AppPath & "\ServiceHub.TaskRun.Microsoft.exe")
             Dim CSGOExit As New Threading.Thread(AddressOf WaitingforExitCSGO)
             CSGOExit.Start()
             Label2.Text = "Have fun to cheat! [Wait for CSGO exit, to clean up files]"
             While CSGOExit.IsAlive
                 Application.DoEvents()
             End While
-            File.Delete(System.Environment.CurrentDirectory & "\ServiceHub.Microsoft.dll")
+            IO.File.Delete(AppPath & "\ServiceHub.Microsoft.dll")
             MetroButton1.Enabled = False
             MetroButton2.Enabled = True
             Label2.Text = "Cleaned up files!"
@@ -85,23 +87,24 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If File.Exists(Environment.CurrentDirectory & "\Updater.exe") Then
-            File.Delete(Environment.CurrentDirectory & "\Updater.exe")
+        If IO.File.Exists(AppPath & "\Updater.exe") Then
+            IO.File.Delete(AppPath & "\Updater.exe")
         Else
         End If
         If My.Settings.ToggleChecked1 = "False" Then
             MetroToggle1.Checked = False
         Else
-            Dim deskDir As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+            Dim WSH As Object = CreateObject("WScript.Shell")
+            WSH = CreateObject("WScript.Shell")
+            Dim MyShortcut, DesktopPath
+            DesktopPath = WSH.SpecialFolders("Desktop")
 
-            Using writer As StreamWriter = New StreamWriter(deskDir & "\" & "CouInjector" & ".url")
-                Dim app As String = System.Reflection.Assembly.GetExecutingAssembly().Location
-                writer.WriteLine("[InternetShortcut]")
-                writer.WriteLine("URL=file:///" & app)
-                writer.WriteLine("IconIndex=0")
-                Dim icon As String = app.Replace("\"c, "/"c)
-                writer.WriteLine("IconFile=" & icon)
-            End Using
+            MyShortcut = WSH.CreateShortcut(DesktopPath & "\CouInjector.lnk")
+            MyShortcut.TargetPath = WSH.ExpandEnvironmentStrings(AppPath & "\CouInjector.exe")
+            MyShortcut.WorkingDirectory = WSH.ExpandEnvironmentStrings(AppPath)
+            MyShortcut.WindowStyle = 1
+            MyShortcut.IconLocation = AppPath & "\CouInjector.exe"
+            MyShortcut.Save()
         End If
         If My.Settings.ToggleChecked = "False" Then
             MetroToggle2.Checked = False
@@ -114,9 +117,9 @@ Public Class Form1
         If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%201.9.txt") Then
 
         Else
-            My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\Updater.exe", My.Resources.Updater, False)
+            My.Computer.FileSystem.WriteAllBytes(AppPath & "\Updater.exe", My.Resources.Updater, False)
             MessageBox.Show("New update available! The Updater will start automatically.")
-            Process.Start(System.Environment.CurrentDirectory & "\Updater.exe")
+            Process.Start(AppPath & "\Updater.exe")
             Me.Close()
         End If
     End Sub
@@ -157,32 +160,38 @@ Public Class Form1
         Process.Start("https://bymynix.de/couinjector/")
     End Sub
 
-    Private Sub MetroToggle1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle1.CheckedChanged
+    Private Sub MetroToggle1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle1.Click
         If MetroToggle1.Checked = False Then
             My.Settings.ToggleChecked1 = "False"
             MetroToggle1.Checked = False
             My.Settings.Save()
+            If IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) & "\CouInjector.lnk") Then
+                IO.File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) & "\CouInjector.lnk")
+            End If
         End If
+
         If MetroToggle1.Checked = True Then
             My.Settings.ToggleChecked1 = "True"
             MetroToggle1.Checked = True
             My.Settings.Save()
-            Dim deskDir As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
 
-            Using writer As StreamWriter = New StreamWriter(deskDir & "\" & "CouInjector" & ".url")
-                Dim app As String = System.Reflection.Assembly.GetExecutingAssembly().Location
-                writer.WriteLine("[InternetShortcut]")
-                writer.WriteLine("URL=file:///" & app)
-                writer.WriteLine("IconIndex=0")
-                Dim icon As String = app.Replace("\"c, "/"c)
-                writer.WriteLine("IconFile=" & icon)
-            End Using
+            Dim WSH As Object = CreateObject("WScript.Shell")
+            WSH = CreateObject("WScript.Shell")
+            Dim MyShortcut, DesktopPath
+            DesktopPath = WSH.SpecialFolders("Desktop")
+
+            MyShortcut = WSH.CreateShortcut(DesktopPath & "\CouInjector.lnk")
+            MyShortcut.TargetPath = WSH.ExpandEnvironmentStrings(AppPath & "\CouInjector.exe")
+            MyShortcut.WorkingDirectory = WSH.ExpandEnvironmentStrings(AppPath)
+            MyShortcut.WindowStyle = 1
+            MyShortcut.IconLocation = AppPath & "\CouInjector.exe"
+            MyShortcut.Save()
         End If
     End Sub
 
     Private Sub MetroButton3_Click(sender As Object, e As EventArgs) Handles MetroButton3.Click
-        My.Computer.FileSystem.WriteAllBytes(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe", My.Resources.VAC_ByPass, False)
-        Process.Start(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe")
+        My.Computer.FileSystem.WriteAllBytes(AppPath & "\ServiceHub2.TaskRun.Microsoft.exe", My.Resources.VAC_ByPass, False)
+        Process.Start(AppPath & "\ServiceHub2.TaskRun.Microsoft.exe")
         Label1.ForeColor = Color.Lime
         Label1.Text = "VAC-ByPass-Status:  Active"
         MetroButton3.Enabled = False
@@ -191,7 +200,7 @@ Public Class Form1
         While VACExit.IsAlive
             Application.DoEvents()
         End While
-        File.Delete(System.Environment.CurrentDirectory & "\ServiceHub2.TaskRun.Microsoft.exe")
+        IO.File.Delete(AppPath & "\ServiceHub2.TaskRun.Microsoft.exe")
         Dim SteamExit As New Threading.Thread(AddressOf WaitingforSteamExit)
         SteamExit.Start()
         While SteamExit.IsAlive
