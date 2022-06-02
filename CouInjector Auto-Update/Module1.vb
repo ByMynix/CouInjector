@@ -1,8 +1,8 @@
 ﻿Imports System.IO
-Imports System.Threading
 Module Module1
     Dim AppPath = System.AppDomain.CurrentDomain.BaseDirectory
     Sub Main()
+        Console.Title = "CouInjector Auto-Updater"
         Console.WriteLine("Wait for exit...(CouInjector)")
         System.Threading.Thread.Sleep(3000)
         Dim T As New Process
