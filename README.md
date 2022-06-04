@@ -1,5 +1,6 @@
 # CouInjector
 
+[![CI](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml/badge.svg)](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml)
 <a href="https://github.com/ByMynix/CouInjector/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ByMynix/CouInjector"></a>
 <a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/908055039258550305?label=Discord&logo=Discord"></a> 
 <a href="https://github.com/ByMynix/CouInjector/commits/master"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/ByMynix/CouInjector"></a>
