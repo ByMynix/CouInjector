@@ -1,5 +1,4 @@
-﻿Imports System.IO
-Imports System.Net
+﻿Imports System.Net
 Imports System.Threading
 Public Class Form1
     Private WithEvents CSGOExit As Thread
@@ -110,11 +109,11 @@ Public Class Form1
             MetroToggle2.Checked = False
         Else
             Process.Start("http://dsc.gg/bymynixde")
-            Process.Start("https://bit.ly/bymynix--developments")
-            Process.Start("https://bit.ly/github-couinjector-bymynix")
+            Process.Start("https://bymynix.de/projects/")
+            Process.Start("https://github.com/ByMynix/CouInjector")
         End If
         Dim client As WebClient = New WebClient()
-        If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%201.9.txt") Then
+        If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.0.txt") Then
 
         Else
             My.Computer.FileSystem.WriteAllBytes(AppPath & "\Updater.exe", My.Resources.Updater, False)
@@ -140,7 +139,7 @@ Public Class Form1
     End Sub
 
     Private Sub PictureBox8_Click(sender As Object, e As EventArgs) Handles PictureBox8.Click
-        Process.Start("https://bit.ly/bymynix--developments")
+        Process.Start("https://bymynix.de/projects/")
     End Sub
 
     Private Sub MetroToggle2_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle2.Click
