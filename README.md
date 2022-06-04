@@ -1,8 +1,18 @@
 # CouInjector
+
+<a href="https://github.com/ByMynix/CouInjector/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ByMynix/CouInjector"></a>
+<a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/908055039258550305?label=Discord&logo=Discord"></a> 
+<a href="https://github.com/ByMynix/CouInjector/commits/master"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/ByMynix/CouInjector"></a>
+<img alt="Platform Windows" src="https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic"></a>
+<img alt="Game CS:GO" src="https://img.shields.io/badge/game-CS%3AGO-yellow.svg?style=plastic"></a>
+<a href="https://www.paypal.com/paypalme/bymynix"><img alt="PayPal" src="https://img.shields.io/badge/donate-PayPal-104098.svg?style=plastic&logo=PayPal"></a>
+
+
+
 ![CouInjector-Picture](https://bymynix.de/couinjector/assets/images/couinjector-picture-412x242.png)
  
 [https://bymynix.de/couinjector/]
-CouInjector (formerly MadInjector) is an open-source project since 11.09.2021 and no longer closed-source. From the 29.05.2022 it's a real Git project, as the previous versions consisted of a file structure and I was too lazy to make the effort.
+CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source project since 11.09.2021 and no longer closed-source. From the 29.05.2022 it's a real Git project, as the previous versions consisted of a file structure and I was too lazy to make the effort.
 
 
 
