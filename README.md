@@ -10,11 +10,11 @@ CouInjector (formerly MadInjector) is an open-source project since 11.09.2021 an
 # Compile
 In this project "CouInjector" resources were embedded:
 
-The resource "Injection", i.e. the injection file (branch in preparation).
+The resource "Injection", i.e. the injection file ([Branch-Injection](https://github.com/ByMynix/CouInjector/tree/CouInjector-Injection)).
 
-The resource "Updater", a console application as auto-updater ([Branch-CouInjector-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
+The resource "Updater", a console application as auto-updater ([Branch-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
 
-The resource "VAC-ByPass", i.e. the VAC-ByPass file (branch in preparation).
+The resource "VAC-ByPass", i.e. the VAC-ByPass file ([Branch-VAC-ByPass](https://github.com/ByMynix/CouInjector/tree/CouInjector-VAC-ByPass)).
 
 These three resources, which are already embedded in "CouInjector" can of course be replaced by compiling the three applications mentioned and then embedding them as resources.
 
