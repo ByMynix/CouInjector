@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: [windows-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+        
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.6
+        
+      - name: Restore NuGet packages
+        run: NuGet restore CouInjector.sln
+        
+      - name: Build the Solution
+        run: msbuild CouInjector.sln
