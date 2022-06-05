@@ -90,6 +90,7 @@ Public Class Form1
             IO.File.Delete(AppPath & "\Updater.exe")
         Else
         End If
+
         Dim client As WebClient = New WebClient()
         If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.0.txt") Then
 
