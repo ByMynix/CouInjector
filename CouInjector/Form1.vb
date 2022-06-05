@@ -90,6 +90,15 @@ Public Class Form1
             IO.File.Delete(AppPath & "\Updater.exe")
         Else
         End If
+        Dim client As WebClient = New WebClient()
+        If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.0.txt") Then
+
+        Else
+            My.Computer.FileSystem.WriteAllBytes(AppPath & "\Updater.exe", My.Resources.Updater, False)
+            MessageBox.Show("New update available! The Updater will start automatically.")
+            Process.Start(AppPath & "\Updater.exe")
+            Me.Close()
+        End If
         If My.Settings.ToggleChecked1 = "False" Then
             MetroToggle1.Checked = False
         Else
@@ -111,15 +120,6 @@ Public Class Form1
             Process.Start("http://dsc.gg/bymynixde")
             Process.Start("https://bymynix.de/projects/")
             Process.Start("https://github.com/ByMynix/CouInjector")
-        End If
-        Dim client As WebClient = New WebClient()
-        If "No Updates available!" = client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.0.txt") Then
-
-        Else
-            My.Computer.FileSystem.WriteAllBytes(AppPath & "\Updater.exe", My.Resources.Updater, False)
-            MessageBox.Show("New update available! The Updater will start automatically.")
-            Process.Start(AppPath & "\Updater.exe")
-            Me.Close()
         End If
     End Sub
 
