@@ -30,7 +30,8 @@ The resource "VAC-ByPass", i.e. the VAC-ByPass file ([Branch-VAC-ByPass](https:/
 These three resources, which are already embedded in "CouInjector" can of course be replaced by compiling the three applications mentioned and then embedding them as resources.
 
 
-Compile it in Release / x86
+Compile it in "Release / x86"
+Compiled application to use is in "\bin\x86\Release"
 
 
 
