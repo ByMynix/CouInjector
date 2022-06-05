@@ -32,7 +32,7 @@ These three resources, which are already embedded in "CouInjector" can of course
 
 Compile it in "Release / x86"
 
-Compiled application to use is in "\bin\x86\Release"
+Compiled application to use is in "\bin\x86\Release" [Important: To use CouInjector, the "MetroFramework.dll" must always be in the same folder]
 
 
 
