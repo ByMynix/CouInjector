@@ -1,24 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using System.Threading;
 using System.IO;
 using System.Diagnostics;
 using IWshRuntimeLibrary;
 using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Controls;
-using Microsoft.VisualBasic;
-using System.Runtime.InteropServices;
-using System.Runtime.ConstrainedExecution;
-using System.Security;
 using Microsoft.Win32;
 
 namespace CouInjector
@@ -68,7 +57,9 @@ namespace CouInjector
                 poisonToggle2.Checked = false;
             else
             {
-                
+                Process.Start("http://dsc.gg/bymynixde");
+                Process.Start("https://bymynix.de/projects/");
+                Process.Start("https://github.com/ByMynix/CouInjector");
             }
         }
 

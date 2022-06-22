@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CouInjector
@@ -18,12 +15,12 @@ namespace CouInjector
             try
             {
                 using (var client = new WebClient())
-                using (client.OpenRead("http://google.com/generate_204"));
+                using (client.OpenRead("http://google.com/generate_204"))
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
             }
-            catch
+            catch (System.Net.WebException)
             {
                 MessageBox.Show("Internet connection required! Either the connection is blocked or it doesn't exist. CouInjector will now close", "CouInjector Error");
                 Application.Exit();
