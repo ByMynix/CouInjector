@@ -21,18 +21,16 @@ CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source
 # Compile
 In this project "CouInjector" resources were embedded:
 
-The resource "Injection", i.e. the injection file ([Branch-Injection](https://github.com/ByMynix/CouInjector/tree/CouInjector-Injection)).
-
 The resource "Updater", a console application as auto-updater ([Branch-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
 
 The resource "VAC-ByPass", i.e. the VAC-ByPass file ([Branch-VAC-ByPass](https://github.com/ByMynix/CouInjector/tree/CouInjector-VAC-ByPass)).
 
-These three resources, which are already embedded in "CouInjector" can of course be replaced by compiling the three applications mentioned and then embedding them as resources.
+These two resources, which are already embedded in "CouInjector" can of course be replaced by compiling the two applications mentioned and then embedding them as resources.
 
 
-Compile it in "Release / x86"
+[Compile it in "Release / x86"]
 
-Compiled application to use is in "\bin\x86\Release" [Important: To use CouInjector, the "MetroFramework.dll" must always be in the same folder]
+[Compiled application to use is in "\bin\x86\Release"]
 
 
 
