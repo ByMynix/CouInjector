@@ -22,7 +22,7 @@ namespace CouInjector_Auto_Update
             }
             catch (System.Net.WebException)
             {
-                MessageBox.Show("Internet connection required! Either the connection is blocked or it doesn't exist. CouInjector will now close", "CouInjector Error");
+                MessageBox.Show("Internet connection required! Either the connection is blocked or it doesn't exist. CouInjector-Auto-Updater will now close", "CouInjector-Auto-Updater Error");
                 Application.Exit();
             }
         }
