@@ -21,7 +21,7 @@ CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source
 # Compile
 In this project "CouInjector" resources were embedded:
 
-The resource "Updater", a console application as auto-updater ([Branch-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
+The resource "Updater", a winforms application as auto-updater ([Branch-Auto-Updater](https://github.com/ByMynix/CouInjector/tree/CouInjector-Auto-Updater)), which takes care of automatic updates.
 
 The resource "VAC-ByPass", i.e. the VAC-ByPass file ([Branch-VAC-ByPass](https://github.com/ByMynix/CouInjector/tree/CouInjector-VAC-ByPass)).
 
