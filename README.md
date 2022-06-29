@@ -10,7 +10,7 @@
 
 
 
-<img alt="CouInjector-Picture" src="https://bymynix.de/couinjector/assets/images/couinjector-picture-412x242.png" />
+<img alt="CouInjector-Picture" src="https://bymynix.de/couinjector/assets/images/couinjector-picture-570x280.png" />
  
 [https://bymynix.de/couinjector/]
 CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source project since 11.09.2021 and no longer closed-source. From the 29.05.2022 it's a real Git project, as the previous versions consisted of a file structure and I was too lazy to make the effort.
