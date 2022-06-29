@@ -73,9 +73,9 @@ namespace CouInjector.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        internal static byte[] VAC_Bypass {
+        internal static byte[] VAC_ByPass {
             get {
-                object obj = ResourceManager.GetObject("VAC_Bypass", resourceCulture);
+                object obj = ResourceManager.GetObject("VAC_ByPass", resourceCulture);
                 return ((byte[])(obj));
             }
         }

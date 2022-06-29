@@ -194,6 +194,7 @@
             // 
             // poisonButton3
             // 
+            this.poisonButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.poisonButton3.Highlight = true;
             this.poisonButton3.Location = new System.Drawing.Point(28, 75);
             this.poisonButton3.Name = "poisonButton3";

@@ -43,7 +43,7 @@ namespace CouInjector
 
             if (pid == UInt32.MinValue)
             {
-                throw new ApplicationException("The game was not found.");
+                throw new ApplicationException("Steam was not found.");
             }
 
             hGame = OpenProcess(ProcessAccessFlags.All, false, (int)pid);

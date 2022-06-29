@@ -33,11 +33,12 @@ namespace CouInjector
             var client = new WebClient();
             if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.1.txt"))
             {
+                poisonLabel4.Text = "No Updates available! You are currently using the latest version of CouInjector";
             }
             else
             {
                 System.IO.File.WriteAllBytes(AppPath + @"\Updater.exe", Properties.Resources.Updater);
-                PoisonMessageBox.Show(this, "New update available! The Updater will start automatically.", "CouInjector: Update-Checker", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                PoisonMessageBox.Show(this, "New update available! The Updater will start automatically after clicking 'Ok'.", "CouInjector: Update-Checker", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 Process.Start(AppPath + @"\Updater.exe");
                 Application.Exit();
             }
@@ -151,7 +152,7 @@ namespace CouInjector
             {
                 using (System.Net.WebClient wc = new System.Net.WebClient())
                 {
-                    MessageBox.Show(this, wc.DownloadString(url), "Changelogs");
+                    PoisonMessageBox.Show(this, wc.DownloadString(url), "Changelogs");
                 }
             }
             catch (Exception ex)
@@ -166,7 +167,7 @@ namespace CouInjector
             {
                 if (Injection.Run(GetPathDLL()))
                 {
-                    poisonLabel4.Text = "Successfully injected!";
+                    PoisonMessageBox.Show(this, "Successfully injected!", "CouInjector: Injection", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
                 {
@@ -182,7 +183,6 @@ namespace CouInjector
         private static string GetPathDLL()
         {
             string dllPath = string.Empty;
-
             using (OpenFileDialog fileDialog = new OpenFileDialog())
             {
                 fileDialog.InitialDirectory = Directory.GetCurrentDirectory();
@@ -196,7 +196,7 @@ namespace CouInjector
                 }
                 else
                 {
-                    throw new ApplicationException("Dll opening error.");
+                    throw new System.ArgumentNullException("No File selected");
                 }
             }
 
@@ -205,7 +205,7 @@ namespace CouInjector
 
         private void poisonButton1_Click(object sender, EventArgs e)
         {
-            System.IO.File.WriteAllBytes(AppPath + @"\ServiceHub2.TaskRun.Microsoft.dll", Properties.Resources.VAC_Bypass);
+            System.IO.File.WriteAllBytes(AppPath + @"\ServiceHub2.TaskRun.Microsoft.dll", Properties.Resources.VAC_ByPass);
             
             foreach (var process in Process.GetProcessesByName("csgo"))
             {
@@ -230,7 +230,7 @@ namespace CouInjector
             {       
                 proc.Refresh();
             }
-            string dllPath = AppPath + @"\ServiceHub2.TaskRun.Microsoft.dll";
+            
             try
             {
                 if (VACByPassLoader.Run(GetPathVACDLL()))
@@ -260,11 +260,8 @@ namespace CouInjector
         }
 
         private static string GetPathVACDLL()
-        {
-            string dllPath = string.Empty;
-
-            
-            dllPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\ServiceHub2.TaskRun.Microsoft.dll";
+        { 
+            string dllPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\ServiceHub2.TaskRun.Microsoft.dll";
 
             return dllPath;
         }
