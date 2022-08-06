@@ -6,6 +6,7 @@ using ReaLTaiizor.Controls;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace CouInjector_Auto_Update
 {
@@ -20,13 +21,29 @@ namespace CouInjector_Auto_Update
 
         }
 
-        private void poisonButton_Click(object sender, EventArgs e)
+        private async void poisonButton_Click(object sender, EventArgs e)
         {
             poisonButton.Enabled = false;
-            System.Threading.Thread DoTasksforDownloading = new System.Threading.Thread(Threading);
-            DoTasksforDownloading.Start();
-            while (DoTasksforDownloading.IsAlive)
-                Application.DoEvents();
+            await Task.Run(() => {
+                poisonLabel.Text = "[^]-Closing CouInjector...";
+                foreach (var process in Process.GetProcessesByName("CouInjector"))
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                }
+                System.Threading.Thread.Sleep(1000);
+                aloneProgressBar1.Value = 5;
+                System.Threading.Thread.Sleep(1000);
+                aloneProgressBar1.Value = 10;
+                System.Threading.Thread.Sleep(1000);
+                poisonLabel.Text = "[^]-Deleting old version...";
+                File.Delete(AppPath + @"\CouInjector.exe");
+                System.Threading.Thread.Sleep(1000);
+                aloneProgressBar1.Value = 15;
+                System.Threading.Thread.Sleep(1000);
+                aloneProgressBar1.Value = 20;
+                System.Threading.Thread.Sleep(1000);
+            });
 
             poisonLabel.Text = "[^]-Downloading new version...";
             var webclient = new WebClient();
@@ -36,27 +53,6 @@ namespace CouInjector_Auto_Update
             webclient.DownloadProgressChanged += DownloadProgressChanged;
 
             webclient.DownloadFileAsync(uri, AppPath + @"\CouInjector.exe");
-        }
-
-        private void Threading()
-        {
-            poisonLabel.Text = "[^]-Closing CouInjector...";
-            Process T = new Process();
-            {
-                var withBlock = T;
-                foreach (Process p1 in Process.GetProcessesByName("CouInjector"))
-                    p1.Kill();
-            }
-            System.Threading.Thread.Sleep(1000);
-            aloneProgressBar1.Value = 5;
-            System.Threading.Thread.Sleep(1000);
-            aloneProgressBar1.Value = 10;
-            poisonLabel.Text = "[^]-Deleting old version...";
-            File.Delete(AppPath + @"\CouInjector.exe");
-            System.Threading.Thread.Sleep(1000);
-            aloneProgressBar1.Value = 15;
-            System.Threading.Thread.Sleep(1000);
-            aloneProgressBar1.Value = 20;
         }
 
         private void DownloadProgressChanged(object sender, System.Net.DownloadProgressChangedEventArgs e)
