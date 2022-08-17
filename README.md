@@ -19,8 +19,6 @@ CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source
 
 
 # Information
-To be able to use the injector to its full extent, the latest C++ redistributales (vc_redist x86) are required: [[Click here]](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170)                                                                                       
-(also required for all csgo cheats written in C++)
 
 <ins>In this project "CouInjector" resources were embedded:</ins>
 
@@ -33,7 +31,7 @@ These two resources, which are already embedded in "CouInjector" can of course b
 
 
 # Compile with Visual Studio
-[Compile it in "Release / x86"]
+[Make sure that the build configuration is "Release / x86" and simply press on "Build Solution" in Visual Studio]
 
 [Compiled application to use is in "\bin\x86\Release"]
 
