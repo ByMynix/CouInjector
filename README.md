@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml/badge.svg)](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml)
 <a href="https://github.com/ByMynix/CouInjector/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ByMynix/CouInjector"></a>
-<a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/908055039258550305?label=Discord&logo=Discord"></a> 
+<a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/1011956038406258748?label=Discord&logo=Discord"></a> 
 <a href="https://github.com/ByMynix/CouInjector/commits/master"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/ByMynix/CouInjector"></a>
 <img alt="Platform Windows" src="https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic"></a>
 <img alt="Game CS:GO" src="https://img.shields.io/badge/game-CS%3AGO-yellow.svg?style=plastic"></a>
@@ -19,8 +19,6 @@ CouInjector (formerly MadInjector) is an injector for CS:GO. It's an open-source
 
 
 # Information
-To be able to use the injector to its full extent, the latest C++ redistributales (vc_redist x86) are required: [[Click here]](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170)                                                                                       
-(also required for all csgo cheats written in C++)
 
 <ins>In this project "CouInjector" resources were embedded:</ins>
 
@@ -33,7 +31,7 @@ These two resources, which are already embedded in "CouInjector" can of course b
 
 
 # Compile with Visual Studio
-[Compile it in "Release / x86"]
+[Make sure that the build configuration is "Release / x86" and simply press on "Build Solution" in Visual Studio]
 
 [Compiled application to use is in "\bin\x86\Release"]
 
