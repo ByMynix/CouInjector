@@ -36,7 +36,7 @@ namespace CouInjector
             }
 
             var client = new WebClient();
-            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.4.txt"))
+            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.5.txt"))
             {
                 poisonLabel4.Text = "No Updates available! You are currently using the latest version of CouInjector";
             }
@@ -63,7 +63,7 @@ namespace CouInjector
                 poisonToggle2.Checked = false;
             else
             {
-                Process.Start("http://dsc.gg/bymynixde");
+                Process.Start("https://bymynix.de/discord/");
                 Process.Start("https://bymynix.de/projects/");
                 Process.Start("https://github.com/ByMynix/CouInjector");
             }
@@ -99,7 +99,7 @@ namespace CouInjector
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            Process.Start("http://dsc.gg/bymynixde");
+            Process.Start("https://bymynix.de/discord/");
         }
 
         private void poisonLinkLabel1_Click(object sender, EventArgs e)
