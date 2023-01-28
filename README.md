@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml/badge.svg)](https://github.com/ByMynix/CouInjector/actions/workflows/main.yml)
 <a href="https://github.com/ByMynix/CouInjector/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ByMynix/CouInjector"></a>
-<a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/1011956038406258748?label=Discord&logo=Discord"></a> 
+<a href="https://dsc.gg/bymynixde"><img alt="ByMynixDE Discord Server" src="https://img.shields.io/discord/1043508603191042048?label=Discord&logo=Discord"></a> 
 <a href="https://github.com/ByMynix/CouInjector/commits/master"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/ByMynix/CouInjector"></a>
 <img alt="Platform Windows" src="https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic"></a>
 <img alt="Game CS:GO" src="https://img.shields.io/badge/game-CS%3AGO-yellow.svg?style=plastic"></a>
