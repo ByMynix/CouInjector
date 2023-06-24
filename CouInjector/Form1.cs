@@ -36,7 +36,7 @@ namespace CouInjector
             }
 
             var client = new WebClient();
-            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.5.txt"))
+            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.6.txt"))
             {
                 poisonLabel4.Text = "No Updates available! You are currently using the latest version of CouInjector";
             }
@@ -211,22 +211,41 @@ namespace CouInjector
         private async void poisonButton1_Click(object sender, EventArgs e)
         {
             poisonButton1.Enabled = false;
+            Process procSteamRestart;
+            string strSteamInstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam", "InstallPath", null);
+            string processNameSteam = "Steam";
+            string[] SteamDependencies = { "csgo", "Steam", "steamwebhelper", "SteamService" };
 
-            foreach (var process in Process.GetProcessesByName("csgo"))
+            Process[] processes = Process.GetProcessesByName(processNameSteam);
+            if (processes.Length > 0)
             {
-                process.Kill();
+                foreach (string processName in SteamDependencies)
+                {
+                    foreach (var process in Process.GetProcessesByName(processName))
+                    {
+                        process.Kill();
+                    }
+                }
             }
-            foreach (var process in Process.GetProcessesByName("Steam"))
+            else
             {
-                process.Kill();
-            }
-            foreach (var process in Process.GetProcessesByName("steamwebhelper"))
-            {
-                process.Kill();
-            }
-            foreach (var process in Process.GetProcessesByName("SteamService"))
-            {
-                process.Kill();
+                procSteamRestart = Process.Start(strSteamInstallPath + @"\Steam.exe");
+                await Task.Run(() =>
+                {
+                    while (string.IsNullOrEmpty(procSteamRestart.MainWindowTitle))
+                    {
+                        procSteamRestart.Refresh();
+                    }
+                });
+
+                foreach (string processName in SteamDependencies)
+                {
+                    foreach (var process in Process.GetProcessesByName(processName))
+                    {
+                        process.Kill();
+                    }
+                }
+                
             }
 
             await Task.Run(() => {
@@ -240,8 +259,6 @@ namespace CouInjector
             });
 
             System.IO.File.WriteAllBytes(AppPath + @"\ServiceHub2.TaskRun.Microsoft.dll", Properties.Resources.VAC_ByPass);
-
-            string strSteamInstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam", "InstallPath", null);
             var proc = Process.Start(strSteamInstallPath + @"\Steam.exe");
 
             await Task.Run(() => {
