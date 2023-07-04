@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using Ionic.Zip;
 
 namespace CouInjector_Auto_Update
 {
@@ -47,12 +48,12 @@ namespace CouInjector_Auto_Update
 
             poisonLabel.Text = "[^]-Downloading new version...";
             var webclient = new WebClient();
-            var uri = new Uri("https://bymynix.de/couinjector/CouInjector.exe");
+            var uri = new Uri("https://bymynix.de/couinjector/CouInjector.zip");
 
             webclient.DownloadFileCompleted += webclient_DownloadDataCompleted;
             webclient.DownloadProgressChanged += DownloadProgressChanged;
 
-            webclient.DownloadFileAsync(uri, AppPath + @"\CouInjector.exe");
+            webclient.DownloadFileAsync(uri, AppPath + @"\CouInjector.zip");
         }
 
         private void DownloadProgressChanged(object sender, System.Net.DownloadProgressChangedEventArgs e)
@@ -63,8 +64,29 @@ namespace CouInjector_Auto_Update
         private void webclient_DownloadDataCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             PoisonMessageBox.Show(this, "Update successfully downloaded. CouInjector starts automatically after clicking 'Ok'.", "CouInjector: Auto-Updater", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            string zipFilePath = "CouInjector.zip";
+            string password = "123";
+            string extractPath = AppPath;
+
+            ExtractZIP(zipFilePath, extractPath, password);
+
+            File.Delete(AppPath + "CouInjector.zip");
+
             Process.Start(AppPath + @"\CouInjector.exe");
             Application.Exit();
+        }
+
+        static void ExtractZIP(string zipFilePath, string extractPath, string password)
+        {
+            using (ZipFile zipFile = ZipFile.Read(zipFilePath))
+            {
+                zipFile.Password = password;
+
+                foreach (ZipEntry entry in zipFile)
+                {
+                    entry.Extract(extractPath, ExtractExistingFileAction.OverwriteSilently);
+                }
+            }
         }
     }
 }
