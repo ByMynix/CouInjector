@@ -36,7 +36,7 @@ namespace CouInjector
             }
 
             var client = new WebClient();
-            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.6.txt"))
+            if ("No Updates available!" == client.DownloadString("https://bymynix.de/couinjector/Update%20Checker%202.7.txt"))
             {
                 poisonLabel4.Text = "No Updates available! You are currently using the latest version of CouInjector";
             }
