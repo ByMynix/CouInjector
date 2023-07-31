@@ -15,7 +15,7 @@ namespace CouInjector
             try
             {
                 using (var client = new WebClient())
-                using (client.OpenRead("http://google.com/generate_204"))
+                using (client.OpenRead("https://clients3.google.com"))
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
